@@ -37,11 +37,11 @@ public class Humain {
 	}
 
 	public void parler(String texte) {
-		System.out.println(prendreParole() + "« " + texte + "»");
+		System.out.println(prendreParole() + texte );
 	}
 
 	private String prendreParole() {
-		return ("(" + nom + ")");
+		return ("(" + nom + ") - ");
 	}
 
 	public void direBonjour() {
@@ -69,14 +69,13 @@ public class Humain {
 	public void gagnerArgent(int gain) {
 		if (gain >= 0) {
 			this.setArgent(argent + gain);
-			parler("J'ai maintenant " + getArgent() + " yens!");
 		}
 
 	}
 
 	public void perdreArgent(int perte) {
 		if (perte >= 0) {
-			if (perte > getArgent()) {
+			if (perte >= getArgent()) {
 				this.setArgent(0);
 				parler("Je n'ai plus aucun argent!");
 			}
